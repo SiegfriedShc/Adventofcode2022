@@ -15,4 +15,5 @@ with open("input1.txt") as file:
             elif current > max3:
                 max3 = current
             current = 0
-print(max1+max2+max3)
+print(f"max: {max1}")
+print(f"3max: {max1+max2+max3}")
