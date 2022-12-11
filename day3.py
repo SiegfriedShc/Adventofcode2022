@@ -16,18 +16,20 @@ with open("input.txt") as file:
 
         # take intersection of these dictionaries
         commonDict = dict1 & dict2
-        
+
         # For each char that is common to both dictionnary :
             # meaning common item in both subparts of the bag
         # add the elf priority of the letter to the answer
         # note that ord() gives the ASCII value, to get elf priority, substract 96 when lowercase, substract 38 when uppercase
         for element in commonDict.elements():
             asciiValue = ord(element)
-            if (asciiValue >= 97 & asciiValue <= 90): #lowercase
-                answer += (asciiValue - 96)
-            elif (asciiValue >= 65 & asciiValue <= 90): #uppercase
-                answer += (asciiValue - 38)
+            if (asciiValue >= 65 and asciiValue <= 90): #uppercase
+                elficValue = asciiValue - 38
+            elif (asciiValue >= 97 and asciiValue <= 122): #lowercase
+                elficValue =  asciiValue - 96
             else:
                 print("char out of ascii values of letters\n")
                 quit()
+            answer += elficValue
+            break #we just want the first
 print(answer)
